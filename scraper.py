@@ -17,7 +17,6 @@ def banner():
 {re} ╩ {cy}└─┘┴─┘└─┘{re}╚═╝  ╚═╝{cy}└─┘┴└─┴ ┴┴  └─┘┴└─
 
             version : 3.1
-youtube.com/channel/UCnknCgg_3pVXS27ThLpw3xQ
         """)
 
 cpass = configparser.RawConfigParser()
@@ -83,7 +82,7 @@ print(gr+'[+] Saving In file...')
 time.sleep(1)
 with open("members.csv","w",encoding='UTF-8') as f:
     writer = csv.writer(f,delimiter=",",lineterminator="\n")
-    writer.writerow(['username','user id', 'access hash','name','group', 'group id'])
+    writer.writerow(['username', 'user id' ,'name', 'group'])
     for user in all_participants:
         if user.username:
             username= user.username
@@ -98,5 +97,5 @@ with open("members.csv","w",encoding='UTF-8') as f:
         else:
             last_name= ""
         name= (first_name + ' ' + last_name).strip()
-        writer.writerow([username,user.id,user.access_hash,name,target_group.title, target_group.id])      
+        writer.writerow([username,user.id,name,target_group.title])      
 print(gr+'[+] Members scraped successfully.')
